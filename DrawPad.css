@@ -56,8 +56,8 @@ table {
 
 		margin: auto;
 		margin-top: 10px;
-		background-color: firebrick;
-		border:5px outset dimgray;
+		background: #43c6ac;
+		border:10px inset #f8ffae;
 		}
 		
 .image  {
@@ -65,6 +65,9 @@ table {
 		text-align: center;
 		margin-left: 400p;
 		padding: 0px;
+		border: 10px inset #43c6ac;
+		width: 50%;
+		margin: auto;
 		
 		
 		}
