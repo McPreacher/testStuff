@@ -39,7 +39,7 @@ var customGrid = function() {
 $(document).ready(function() {
 	createGrid();
 	
-	//tell the browser what to do when the mouse touches the blocks on the grid//
+	//tell the browser what to do when the mouse clicks the blocks on the grid//
 	
 	$('.grid').on('click', function() {
 		$(this).css('background-color', gridColor);
@@ -48,16 +48,49 @@ $(document).ready(function() {
 		$(this).css('background-color', gridColor);
 	});
 	
+	//tell the browser to erase color when the mouse double clicks the blocks on the grid//
+	
+	$('grid').on('dblclick', function() {
+		$(this).css('background-color', 'dimgray');
+	});
+	
+	$(document).on('dblclick', '.grid', function() {
+		$(this).css('background-color', 'dimgray');
+	});
+	
 	//add some style to the buttons//
 	
-	$('.buttons').hover(
-		function() {
-			$(this).css("background-color", "darkslategray");
-		},
+	//first create function buttonColor so that each individual button//
+	//will go back to it's original color after being hovered over//
+	
+	var buttonColor = function(button, color) {
+		$(button).hover(
+			function() {
+				$(this).css("background-color", "darkslategray");
+			},
 		
-		function() {
-			$(this).css("background-color", "white");
-		});
+			function() {
+				$(this).css("background-color", color);
+			});
+		}
+	//call function buttonColor on each button//
+		
+	buttonColor('#blue', 'blue');
+	buttonColor('#purple', 'purple');
+	buttonColor('#red', 'red');
+	buttonColor('#orange', 'orange');
+	buttonColor('#black', 'black');
+	buttonColor('#brown', 'saddlebrown');
+	buttonColor('#yellow', 'yellow');
+	buttonColor('#green', 'green');
+	buttonColor('#pink', 'pink');
+	buttonColor('#cyan', 'cyan');
+	buttonColor('#white', '#ffffff');
+	buttonColor('#lavender', 'lavender');
+	buttonColor('#lime', 'lime');
+	buttonColor('#tan', 'BurlyWood');
+	buttonColor('#indigo', 'Indigo');
+
 		
 	
 	$('.control').hover(
@@ -100,6 +133,7 @@ $(document).ready(function() {
 		$('.grid').on('click', function() {
 			$(this).css('background-color', 'blue');
 		});
+		
 		$(document).on('click', '.grid', function() {
 			$(this).css('background-color', 'blue');
 		});
@@ -156,7 +190,7 @@ $(document).ready(function() {
 	
 	$('#brown').click(function() {
 		$('.grid').on('click', function() {
-			$(this).css('background-color', 'brown');
+			$(this).css('background-color', 'saddlebrown');
 		});
 		$(document).on('click', '.grid', function() {
 			$(this).css('background-color', 'saddlebrown');
@@ -229,8 +263,39 @@ $(document).ready(function() {
 		});
 	});
 	
+	//lime//
+	
+	$('#lime').click(function() {
+		$('.grid').on('click', function() {
+			$(this).css('background-color', 'Lime');
+		});
+		$(document).on('click', '.grid', function() {
+			$(this).css('background-color', 'Lime');
+		});
+	});
 	
 	
+	//tan//
+	
+	$('#tan').click(function() {
+		$('.grid').on('click', function() {
+			$(this).css('background-color', 'BurlyWood');
+		});
+		$(document).on('click', '.grid', function() {
+			$(this).css('background-color', 'BurlyWood');
+		});
+	});
+	
+	//indigo//
+	
+	$('#indigo').click(function() {
+		$('.grid').on('click', function() {
+			$(this).css('background-color', 'Indigo');
+		});
+		$(document).on('click', '.grid', function() {
+			$(this).css('background-color', 'Indigo');
+		});
+	});
 	
 	
 	

@@ -41,15 +41,21 @@ h1, body {
 
 
 .buttons {
-		background-color: white;
-		margin: 1px;
+		font-family: serif;
+		color: white;
+		margin: auto;
 		display: table;
+		width: 75px;
+		border-radius: 10px;
+		cursor: pointer;
+		border: 2px outset black;
 				
 		}
 		
 .control {
 		background-color: lightslategray;
 		border: 2px solid black;
+		width: 125px
 		}
 		
 table {
@@ -70,6 +76,14 @@ table {
 		margin: auto;
 		
 		
+		}
+		
+#footer {
+		position: relative;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		text-align: center;
 		}
 		
 
