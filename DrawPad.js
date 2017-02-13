@@ -1,8 +1,10 @@
+
 //DrawPad.js//
 
 
-//declare gridColor//
-var gridColor = 'crimson';
+//declare gridColor and eraseToBackground//
+var gridColor = 'red';
+var eraseToBackground = 'dimgray';
 
 
 //creates the original grid on the page//
@@ -14,8 +16,11 @@ var createGrid = function() {
 		}
 		
 	}
-	
+
 };
+
+//gives user option to customize the drawing grid//
+
 var customGrid = function() {
 	var num = prompt("How many squares for your grid?");
 	for(var x = 0; x < num; x++) {
@@ -49,14 +54,15 @@ $(document).ready(function() {
 	});
 	
 	//tell the browser to erase color when the mouse double clicks the blocks on the grid//
-	
+		
 	$('grid').on('dblclick', function() {
-		$(this).css('background-color', 'dimgray');
+		$(this).css('background-color', eraseToBackground);
 	});
 	
 	$(document).on('dblclick', '.grid', function() {
-		$(this).css('background-color', 'dimgray');
+		$(this).css('background-color', eraseToBackground);
 	});
+	
 	
 	//add some style to the buttons//
 	
@@ -91,7 +97,7 @@ $(document).ready(function() {
 	buttonColor('#tan', 'BurlyWood');
 	buttonColor('#indigo', 'Indigo');
 
-		
+	//control buttons activity//	
 	
 	$('.control').hover(
 		function() {
@@ -127,186 +133,90 @@ $(document).ready(function() {
 	
 	//Control what happens when the color buttons are pressed//
 	
-	//blue//
+	var btnColorControl = function(button, color) {
+		$(button).click(function() {
+			$('.grid').on('click', function() {
+				$(this).css('background-color', color);
+			});
+		
+			$(document).on('click', '.grid', function() {
+				$(this).css('background-color', color);
+			});
 	
-	$('#blue').click(function() {
+		});
+		
+	};
+	
+	btnColorControl('#blue', 'blue');
+	btnColorControl('#purple', 'purple');
+	btnColorControl('#red', 'red');
+	btnColorControl('#orange', 'orange');
+	btnColorControl('#black', 'black');
+	btnColorControl('#brown', 'saddlebrown');
+	btnColorControl('#yellow', 'yellow');
+	btnColorControl('#green', 'green');
+	btnColorControl('#pink', 'pink');
+	btnColorControl('#cyan', 'cyan');
+	btnColorControl('#white', '#ffffff');
+	btnColorControl('#lavender', 'lavender');
+	btnColorControl('#lime', 'Lime');
+	btnColorControl('#tan', 'BurlyWood');
+	btnColorControl('#indigo', 'Indigo');
+	
+	//changes grid background//
+	var gridBackGround = function() {
+		
+		
+		$('#gridoriginal').on('click', function() {
+			$('#container').empty();
+			createGrid();
+			$('.grid').css('background-color', 'dimgray');
+			eraseToBackground = 'dimgray';
+		});
+		
+		$('#gridwhite').on('click', function() {
+			$('#container').empty();
+			createGrid();
+			$('.grid').css('background-color', '#ffffff');
+			eraseToBackground = '#ffffff';
+		});
+		
+		$('#gridblack').on('click', function() {
+			$('#container').empty();
+			createGrid();
+			$('.grid').css('background-color', 'black');
+			eraseToBackground = 'black';
+		});
+		
+		$('#gridpostit').on('click', function() {
+			$('#container').empty();
+			createGrid();
+			$('.grid').css('background-color', '#fcee92');
+			eraseToBackground = '#fcee92';
+		});
+		
+		$('#gridsky').on('click', function() {
+			$('#container').empty();
+			createGrid();
+			$('.grid').css('background-color', '#92ccfc');
+			eraseToBackground = '#92ccfc';
+		});
+		
+		return eraseToBackground;
+	};
+		
+	gridBackGround();
+
+	
+	//actual erase button for bigger corrections//
+	$('#erase').click(function() {
 		$('.grid').on('click', function() {
-			$(this).css('background-color', 'blue');
+			$(this).css('background-color', eraseToBackground);
 		});
 		
 		$(document).on('click', '.grid', function() {
-			$(this).css('background-color', 'blue');
-		});
-	
-	});
-	
-	//purple//
-	
-	$('#purple').click(function() {
-		$('.grid').on('click', function() {
-			$(this).css('background-color', 'purple');
-		});
-		$(document).on('click', '.grid', function() {
-			$(this).css('background-color', 'purple');
-		});
-	
-	});
-
-	//red//
-	
-	$('#red').click(function() {
-		$('.grid').on('click', function() {
-			$(this).css('background-color', 'red');
-		});
-		$(document).on('click', '.grid', function() {
-			$(this).css('background-color', 'red');
-		});
-	
-	});
-	
-	//Orange//
-	
-	$('#orange').click(function() {
-		$('.grid').on('click', function() {
-			$(this).css('background-color', 'orange');
-		});
-		$(document).on('click', '.grid', function() {
-			$(this).css('background-color', 'orange');
-		});
-	});
-	
-	//black//
-	
-	$('#black').click(function() {
-		$('.grid').on('click', function() {
-			$(this).css('background-color', 'black');
-		});
-		$(document).on('click', '.grid', function() {
-			$(this).css('background-color', 'black');
-		});
-	});
-	
-	//brown//
-	
-	$('#brown').click(function() {
-		$('.grid').on('click', function() {
-			$(this).css('background-color', 'saddlebrown');
-		});
-		$(document).on('click', '.grid', function() {
-			$(this).css('background-color', 'saddlebrown');
-		});
-	});
-	
-	//yellow//
-	
-	$('#yellow').click(function() {
-		$('.grid').on('click', function() {
-			$(this).css('background-color', 'yellow');
-		});
-		$(document).on('click', '.grid', function() {
-			$(this).css('background-color', 'yellow');
-		});
-	});
-	
-	//green//
-	
-	$('#green').click(function() {
-		$('.grid').on('click', function() {
-			$(this).css('background-color', 'green');
-		});
-		$(document).on('click', '.grid', function() {
-			$(this).css('background-color', 'green');
-		});
-	});
-	
-	//pink//
-	
-	$('#pink').click(function() {
-		$('.grid').on('click', function() {
-			$(this).css('background-color', 'pink');
-		});
-		$(document).on('click', '.grid', function() {
-			$(this).css('background-color', 'pink');
-		});
-	});
-	
-	//cyan//
-	
-	$('#cyan').click(function() {
-		$('.grid').on('click', function() {
-			$(this).css('background-color', 'cyan');
-		});
-		$(document).on('click', '.grid', function() {
-			$(this).css('background-color', 'cyan');
-		});
-	});
-	
-	//White//
-	
-	$('#white').click(function() {
-		$('.grid').on('click', function() {
-			$(this).css('background-color', '#ffffff');
-		});
-		$(document).on('click', '.grid', function() {
-			$(this).css('background-color', '#ffffff');
-		});
-	});
-	
-	//lavender//
-	
-	$('#lavender').click(function() {
-		$('.grid').on('click', function() {
-			$(this).css('background-color', 'lavender');
-		});
-		$(document).on('click', '.grid', function() {
-			$(this).css('background-color', 'lavender');
-		});
-	});
-	
-	//lime//
-	
-	$('#lime').click(function() {
-		$('.grid').on('click', function() {
-			$(this).css('background-color', 'Lime');
-		});
-		$(document).on('click', '.grid', function() {
-			$(this).css('background-color', 'Lime');
-		});
-	});
-	
-	
-	//tan//
-	
-	$('#tan').click(function() {
-		$('.grid').on('click', function() {
-			$(this).css('background-color', 'BurlyWood');
-		});
-		$(document).on('click', '.grid', function() {
-			$(this).css('background-color', 'BurlyWood');
-		});
-	});
-	
-	//indigo//
-	
-	$('#indigo').click(function() {
-		$('.grid').on('click', function() {
-			$(this).css('background-color', 'Indigo');
-		});
-		$(document).on('click', '.grid', function() {
-			$(this).css('background-color', 'Indigo');
-		});
-	});
-	
-	
-	
-	//sets the color of a given block back to default//
-	
-	$('#erase').click(function() {
-		$('.grid').on('click', function() {
-			$(this).css('background-color', 'dimgray');
-		});
-		$(document).on('click', '.grid', function() {
-			$(this).css('background-color', 'dimgray');
+			$(this).css('background-color', eraseToBackground);
 		});
 	});
 });
+

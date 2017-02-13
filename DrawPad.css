@@ -19,7 +19,7 @@ h1, body {
 		height: 576px;
 		width: 576px;
 		margin: auto;
-		border: 3px outset black
+		border: 12px ridge #f8ffae;
 		
 		}
 		
@@ -71,7 +71,7 @@ table {
 		text-align: center;
 		margin-left: 400p;
 		padding: 0px;
-		border: 10px inset #43c6ac;
+		border: 10px outset #f8ffae;
 		width: 50%;
 		margin: auto;
 		
@@ -86,8 +86,49 @@ table {
 		text-align: center;
 		}
 		
-
+#gridcolor {
 		
+		font-weight: normal;
+		font-size: 14px;
+		}
+		
+#gridoriginal {
 
+	background-color: dimgray;
+	color: white;
+	
+	}
+	
+#gridwhite {
+	
+	background-color: white;
+	color: black;
+	}
+	
+#gridblack {
+	
+	background-color: black;
+	color: white;
+	
+	}
+	
+#gridpostit  {
+	background-color: #fcee92;
+	color: black;
+	
+	}
+	
+#gridsky  {
+	
+	background-color: #92ccfc;
+	color: black;
+	
+	}
+	
+.gridbg  {
+
+	width: 75px;
+	border: 3px ridge SteelBlue;
+	}
 		
 	
