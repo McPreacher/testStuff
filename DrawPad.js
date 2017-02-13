@@ -13,6 +13,7 @@ var createGrid = function() {
 		for(var y = 0; y < 16; y++) {
 			var $grid = $('<div class="grid"></div>');
 			$grid.appendTo('#container');
+			$grid.css('background-color', eraseToBackground);
 		}
 		
 	}
